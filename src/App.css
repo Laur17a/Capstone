@@ -1,6 +1,6 @@
 nav{
   background-color: #007380ae;
-  font-size: 35px;
+  font-size: 25px;
   font-family: "Libre Barcode 39 Text", system-ui;
   top: 0px;
   box-shadow: 0px 6px 5px;
@@ -36,7 +36,37 @@ nav a:hover {
   margin: 10px 0px 0px 0px;
 }
 
+.fa-home{
+  font-size: 15px;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
 
+.fa-shopping-cart{
+  font-size: 15px;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.fa-film{
+  font-size: 15px;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.fa-info-circle{
+  font-size: 15px;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
 
 h1 { /*titles centered*/
   display: flex;
@@ -90,6 +120,7 @@ temp layout*/
   display: flex;
   justify-content: center;
   flex-direction: column;
+  animation: spin 5s;
 }
 
 
@@ -204,8 +235,56 @@ temp layout*/
 .homepage-notify{
   color: #014d5585;
   font-size: 20px;
-  margin: 7px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  padding: 0px;
 }
+
+.homepage-notify input{
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  border: none;
+  width: auto;
+  height: 20%;
+  font-size: 20px;
+  font-weight: 700;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #025e68;
+}
+
+.homepage-notify input::placeholder{
+  color: #025e68;
+}
+
+.homepage-notify input:focus{
+  outline: none;
+}
+
+.homepage-notify img{
+  height: auto;
+  width: 17%;
+}
+
+.homepage-notify button{
+  background-color: #00000000;
+  margin: 2px;
+  padding: 1px;
+  border: none;
+}
+
+.homepage-notify ul{
+  font-size: 16px;
+  color: #000000;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 1px;
+  padding: 1px;
+  list-style-type: none;
+}
+
+
 
 
 
@@ -244,19 +323,48 @@ temp layout*/
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.cart img{
-  margin: 250px; /*just for now*/
-  padding: 0px;
-  width: 20%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
+.cart img{
+  margin: 0px;
+  padding: 0px;
+  width: 20%;
+  height: auto;
+}
+.cart table{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  word-wrap: break-word;
+  padding: 10px;
+  margin: 5px;
+}
 
+.cart td{
+  text-align: center;
+  padding: 5px;
+  display: in;
+  align-items: center;
+  justify-content: start;
+}
+
+.cart tr{
+  border-bottom: 1px solid #000000;
+  margin: 2px;
+  padding: 3px;
+}
+
+.cart input {
+  width: 30px;
+  text-align: center;
+}
+
+.cart-total{
+  font-weight: 700;
+  color: #025e68;
+  border-top: 1px solid #000000;
+}
 
 
 
@@ -277,6 +385,7 @@ temp layout*/
   display: flex;
   justify-content: center;
   flex-direction: column;
+  animation: spin 5s;
 }
 
 
@@ -291,17 +400,83 @@ temp layout*/
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .about img{
-  margin: 250px; /*just for now*/
-  padding: 0px;
+  margin: 10px; /*just for now*/
+  padding: 5px;
   width: 50%;
   height: 50%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
+
+.about p{
+  display: flex;
+  margin: 15px;
+  padding: auto;
+}
+
+
+
+
+
+
+.subscriptions-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.subscription-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.subscription-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.subscription-card img {
+  width: 100px;
+  height: auto;
+}
+
+.subscription-card h2 {
+  font-size: 1.5em;
+}
+
+.subscription-card p {
+  margin: 10px 0;
+}
+
+.subscription-card button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.subscription-card button:hover {
+  background-color: #0056b3;
+}
+
+.subscription-card:hover {
+  transform: translateY(-5px); /* Small animation effect on hover */
+}
+
+
+
+
+
 
 
 
@@ -313,7 +488,7 @@ temp layout*/
 }
 
 
-@keyframes App-logo-spin {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }

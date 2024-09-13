@@ -1,12 +1,12 @@
 import React from 'react';
 import '../App.css';
-import loading from '../pics/loading.png';
+import reel from '../pics/reel.png';
 
 function Cart() {
     return (
-      <div className='cart'>
-        <h1> </h1>
-        <img src={loading}/>
+      <div className='profile'>
+        <h1></h1>
+        <img src={reel}/>
       </div>
     );
   }
