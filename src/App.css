@@ -235,15 +235,33 @@ temp layout*/
 .homepage-notify{
   color: #014d5585;
   font-size: 20px;
-  margin-top: 5px;
-  margin-bottom: 2px;
-  padding: 0px;
-}
-
-.homepage-notify input{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #000000bd;
+  border-width: auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #000000ad;
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.homepage-notify-title{
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+
+.homepage-notify input{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   width: auto;
   height: 20%;
@@ -251,6 +269,8 @@ temp layout*/
   font-weight: 700;
   font-family:Arial, Helvetica, sans-serif;
   color: #025e68;
+  padding-left: 10px;
+  background-color: #00000000;
 }
 
 .homepage-notify input::placeholder{
@@ -267,9 +287,9 @@ temp layout*/
 }
 
 .homepage-notify button{
-  background-color: #00000000;
-  margin: 2px;
-  padding: 1px;
+  background-color: #81b0a800;
+  margin: 0px;
+  padding: 5px;
   border: none;
 }
 
@@ -283,6 +303,25 @@ temp layout*/
   padding: 1px;
   list-style-type: none;
 }
+
+.homepage-notify table{
+  table-layout: fixed;
+  width: auto;
+  border-collapse: collapse;
+  word-wrap: break-word;
+  padding: 0px;
+  margin: 0px;
+}
+
+.homepage-notify tr{
+  border-bottom: 1px solid #000000;
+  width: 20%;
+}
+
+.homepage-notify-btn{
+  width: 7%;
+}
+
 
 
 

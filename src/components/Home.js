@@ -3,8 +3,6 @@ import '../App.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';  /*https://bobbyhadz.com/blog/react-onclick-redirect*/
 import search from '../pics/search.png'; /*freaking dots */
-import add_boxB from '../pics/add_boxB.png';
-import List from './List';
 
 
 
@@ -13,10 +11,17 @@ function Home() {
   const [input, setInput] = useState (' ');//search bar
   const [title, setTitle] = useState(''); //list name
   const [edit, setEdit] = useState(false); //edit list name/stuff
+
   const navigate = useNavigate();
 
   const [movies, setMovies] = useState([]);//array of all movies/searches
+
   
+//list name = title
+  useEffect(()=>{
+    const titleUsed = (JSON.parse(localStorage.getItem('title'))) || [];
+    setTitle(titleUsed);
+},[]);
 
 
   useEffect(()=>{
@@ -25,6 +30,7 @@ function Home() {
   },[]);
   
 
+
   const addMovie = (movie) => {
     const newMovie = [...movies, {title:movie}];
     setMovies(newMovie);
@@ -32,17 +38,18 @@ function Home() {
     localStorage.setItem('movies', JSON.stringify(newMovie));
   };
 
-
   const removeMovie = (item) => { /*https://www.geeksforgeeks.org/how-to-delete-an-item-from-state-array-in-reactjs/#*/
     const updateMovies = movies.filter(movie => movie !== item);
     setMovies(updateMovies);
 
-    localStorage.setItem('movies', JSON.stringify(updateMovies));
+    localStorage.setItem('movies', JSON.stringify(movies));
    };
-
    
+
+
    const editThis = () => {
     setEdit(!edit);
+    localStorage.setItem('title', JSON.stringify(title));
    }
 
 
@@ -50,6 +57,7 @@ function Home() {
     e.preventDefault();//prevents immeadiate clear
     addMovie(input);
     console.log(input);//logs input
+    navigate(`/movies?input=${input}`);//go to movies with this.
     setInput(''); //resets console
   };
 
@@ -72,29 +80,25 @@ function Home() {
 
 
         <div className="homepage-notify">
-
-          <div>
-            <input placeholder='Now Streaming...' onChange={(e) => setTitle(e.target.value)} readOnly={!edit}></input>
-            <button onClick={editThis}><i class="fa fa-pencil" aria-hidden="true"/>{edit ? 'Save':'Edit'}</button>
+          <div className='homepage-notify-title'>
+            <button onClick={editThis}>{edit ? <i class="fa fa-save" aria-hidden="true"/>:<i className="fa fa-edit" aria-hidden="true"/>}</button>
+            <input id="title"  value = {title} placeholder='Now Streaming...' onChange={e => setTitle(e.target.value)} readOnly={!edit}></input>
           </div>
             
-          <ul>{movies.map((movie,index)=>(<li key={index}>{movie.title} 
-
-            <button onClick={() => removeMovie(movie)}><i class="fa fa-trash" aria-hidden="true"/></button>
-            <button><i class="fa fa-play-circle" aria-hidden="true"/></button>
-
-            </li>))}</ul>
-
+          <table>
+            <tbody>
+            {movies.map((movie,index)=>(
+              <tr key={index}>
+                <td>{movie.title}</td>
+                <td className='homepage-notify-btn'><button onClick={() => removeMovie(movie)}><i className="fa fa-trash" aria-hidden="true"/></button></td>
+                <td className='homepage-notify-btn'><button><i className="fa fa-play-circle" aria-hidden="true"/></button></td>
+              </tr>
+            ))}
+            </tbody>
+            </table>
         </div>
       
-      
-
-      <div className="home-list">
-        <h2>My Lists</h2>
-        <button onClick={()=>navigate('/list')}><img src={add_boxB}/></button>
-      </div>
-
-
+    
       </div>
 
     );
