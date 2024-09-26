@@ -1,12 +1,12 @@
 import React from 'react';
 import '../App.css';
 import reel from '../pics/reel.png';
+import Login from './Login';
 
 function Profile() {
     return (
       <div className='profile'>
-        <h1></h1>
-        <img src={reel}/>
+        <Login/>
       </div>
     );
   }

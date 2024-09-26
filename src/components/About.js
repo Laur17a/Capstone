@@ -1,12 +1,15 @@
 import React from 'react';
 import '../App.css';
 import logo from '../pics/company_logo.png';
+import film from '../pics/film.jpg';
 
 
 function About() {
-    return (
-      <div className='about'>
-        <img src={logo}/>
+    return (<div className='about'>
+
+      <img src={logo}/>
+
+      <div className='about-speech'>
         <p>EZTechMovie is a privately owned video streaming company with its
             headquarters and data located in San Diego, California. Pat Jones, the Founder
             and CEO, established EZTechMovie in April of 2019.</p>
@@ -14,9 +17,11 @@ function About() {
             of flat-rate package subscriptions to its customers throughout the United States.
             It has a revenue of $1.5 million per year and currently employs 70 people.</p>
         <p>Recently the company has about one million subscribers. It is estimated that, in
-            the next three years, the number of customers will increase to 10 million</p>
+            the next three years, the number of customers will increase to 10 million</p>      
       </div>
-    );
+      
+
+    </div>);
   }
   
   export default About;

@@ -6,10 +6,26 @@ import { CartProvider } from './context/CartContext';
 import reportWebVitals from './reportWebVitals';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, error => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+  });
+}
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CartProvider>
       <App />
+    </CartProvider>
   </React.StrictMode>
 );
 

@@ -36,38 +36,6 @@ nav a:hover {
   margin: 10px 0px 0px 0px;
 }
 
-.fa-home{
-  font-size: 15px;
-  margin: 3px;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-.fa-shopping-cart{
-  font-size: 15px;
-  margin: 3px;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-.fa-film{
-  font-size: 15px;
-  margin: 3px;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-.fa-info-circle{
-  font-size: 15px;
-  margin: 3px;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
 h1 { /*titles centered*/
   display: flex;
   align-items: center;
@@ -86,18 +54,60 @@ h1 { /*titles centered*/
 }
 
 
-footer {
+
+
+
+/*Login*/
+
+.Login{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  position: absolute;
-  width: 100%;
-  bottom: 0px;
-}
-footer img {
-  max-width: 13%;
-  height: auto;
+  margin: 2px;
 }
 
+.Login form{
+  background-color: #c2e2e445;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 5px;
+}
+
+.Login div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 2px;
+}
+
+.Login input{
+  outline: none;
+  margin: 3px;
+  padding: 5px;
+  font-size: 17px;
+  border-radius: 8px;
+  border-color: #00000057;
+}
+
+.Login button{
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  display: block; 
+  font-size: 14px;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.Login button:hover{
+  background-color: #38c0cf28;
+}
 
 
 
@@ -138,10 +148,12 @@ temp layout*/
   flex-direction: column;
   align-items: center;
   margin: 15px;
+  
 }
 
 .home-search {
   width: 100%;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,6 +170,7 @@ temp layout*/
   box-shadow: 0px 0px 7px #01444f5b;
   margin: 5px;
   width: 80%;
+  background-color: #ffffff;
 }
 
 .home-icon{
@@ -173,11 +186,13 @@ temp layout*/
   height: 35px;
   font-size: 15px;
   border: none;
+  background-color: #00000000;
 }
 
 .home-search input:focus{  /*https://medium.com/@andwebdev/design-and-develop-a-functional-search-bar-in-react-44321ed3c244*/
   outline: none;
 }
+
 
 .homepage button{
   padding: 10px 15px;
@@ -233,15 +248,15 @@ temp layout*/
 }
 
 .homepage-notify{
-  color: #014d5585;
+  background-color:#43aeb9d6;
+  color: #ffffff;
   font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 40px;
   padding: 10px;
-  border: 2px solid #000000bd;
+  border: 2px solid #5b5b5b76;
   border-width: auto;
   border-radius: 5px;
-  box-shadow: 0px 0px 2px #000000ad;
+  box-shadow: 0px 0px 2px #53535365;
   width: 60%;
   height: auto;
   display: flex;
@@ -257,7 +272,6 @@ temp layout*/
   width: auto;
 }
 
-
 .homepage-notify input{
   display: inline-flex;
   align-items: center;
@@ -268,22 +282,17 @@ temp layout*/
   font-size: 20px;
   font-weight: 700;
   font-family:Arial, Helvetica, sans-serif;
-  color: #025e68;
+  color: #ffffff;
   padding-left: 10px;
   background-color: #00000000;
 }
 
 .homepage-notify input::placeholder{
-  color: #025e68;
+  color: #ffffff;
 }
 
 .homepage-notify input:focus{
   outline: none;
-}
-
-.homepage-notify img{
-  height: auto;
-  width: 17%;
 }
 
 .homepage-notify button{
@@ -295,7 +304,7 @@ temp layout*/
 
 .homepage-notify ul{
   font-size: 16px;
-  color: #000000;
+  color: #ffffff;
   display: inline-flex;
   flex-direction: column;
   align-items: left;
@@ -314,7 +323,7 @@ temp layout*/
 }
 
 .homepage-notify tr{
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #ffffff;
   width: 20%;
 }
 
@@ -328,81 +337,176 @@ temp layout*/
 
 
 
-
-/*List Page*/
-
-.list{
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: left;
-}
-
-.list input{
-  width: 70%;
-  margin: 0px;
-  height: 35px;
-  font-size: 15px;
-  border: none;
-  border-bottom: #000000;
-}
-.list input:focus{
-  outline: none;
-}
-
-
-
-
-
-
-
 /*Cart*/
 
-.cart{
+.cart-empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+.cart-empty img{
+  margin: 20px; /*just for now*/
+  padding: 0px;
+  width: 20%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  animation: spin 8s;
+}
+
+.cart {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.cart img{
-  margin: 0px;
-  padding: 0px;
-  width: 20%;
-  height: auto;
-}
-.cart table{
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-  word-wrap: break-word;
-  padding: 10px;
+.cart h1{
+  padding:5px;
   margin: 5px;
 }
 
-.cart td{
-  text-align: center;
-  padding: 5px;
-  display: in;
+.cart ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+}
+
+.cart-items{
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 7px;
+  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: start;
 }
 
-.cart tr{
-  border-bottom: 1px solid #000000;
-  margin: 2px;
-  padding: 3px;
+.cart-item-info {
+  flex-grow: 1;
 }
 
-.cart input {
-  width: 30px;
+.cart-item-info h3{
   text-align: center;
 }
 
-.cart-total{
-  font-weight: 700;
-  color: #025e68;
-  border-top: 1px solid #000000;
+.remove-button {
+  background-color: #00738000;
+  border: none;
+  color: #012529ae;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-button:hover {
+  color: #ad1212bf; /* Darker green on hover */
+  font-size: 19px;
+}
+
+.cart-buttons button{
+  background-color: #007380;
+  border: none;
+  color: #ffffff;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.cart-buttons button:hover{
+  font-size: 18px;
+  background-color: #02abbd;
+}
+
+
+
+
+
+
+.checkout {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+}
+
+.checkout h2 {
+  margin: 10px 0;
+  font-size: 24px; 
+  align-items: center;
+  justify-content: center; 
+  width: 100%; 
+  color: #007380;
+}
+
+.complete-purchase-button {
+  background-color: #007380; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block; 
+  font-size: 16px;
+  margin: 20px auto; /* Margin around the button and auto on sides for centering */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.complete-purchase-button:hover {
+  background-color: #00a7ba; 
+  font-size: 17px;
+}
+
+.checkout-items {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0;
+  width: 100%; 
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  border-bottom: 1px solid #ddd; 
+  padding: 0px;
+  margin: 0px;
+  text-align: center; 
+}
+
+.checkout-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 0px;
+  margin: 0px;
+}
+
+.confirmation-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #02c0b0;
+  text-align: center;
 }
 
 
@@ -416,8 +520,19 @@ temp layout*/
   align-items: center;
 }
 
+.movies ul{
+  list-style: none;
+  padding: 15px;
+  margin: 15px;
+}
+
+.movies li{
+  border-bottom: solid 1px #01928675;
+  box-shadow: 0 1px 0px #42736f75;
+}
+
 .movies img{
-  margin: 250px; /*just for now*/
+  margin: 20px;
   padding: 0px;
   width: 20%;
   height: 50%;
@@ -444,7 +559,7 @@ temp layout*/
 
 .about img{
   margin: 10px; /*just for now*/
-  padding: 5px;
+  padding: 25px;
   width: 50%;
   height: 50%;
 }
@@ -455,10 +570,20 @@ temp layout*/
   padding: auto;
 }
 
+.about-speech{
+
+}
 
 
 
 
+/*Subs*/
+.sub-title{
+  padding:5px;
+  margin: 5px;
+  text-align: center;
+
+}
 
 .subscriptions-container {
   text-align: center;
@@ -496,7 +621,7 @@ temp layout*/
 }
 
 .subscription-card button {
-  background-color: #007BFF;
+  background-color: #007380ae;
   color: white;
   border: none;
   padding: 10px;
@@ -505,12 +630,13 @@ temp layout*/
 }
 
 .subscription-card button:hover {
-  background-color: #0056b3;
+  background-color: #007380fb;
 }
 
 .subscription-card:hover {
   transform: translateY(-5px); /* Small animation effect on hover */
 }
+
 
 
 

@@ -1,61 +1,53 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import '../App.css';
 import reel from '../pics/reel.png';
 
 function Cart() {
 
+const { cart, removeFromCart } = useCart();
 const navigate = useNavigate();
-const [cart, setCart] = useState([]);
+//const [cart, setCart] = useState([]);
 
-const calculateEachPrice = (item) => item.amount * item.price;
-  
-const calculateTotalPrice = () => {
-  return cart.reduce((total, item) => total + calculateEachPrice(item), 0);
-};
+if (!cart || cart.length === 0) {
+  return <div className='cart-empty'>Your cart is empty.
+              <img src={reel}/></div>;
+}
 
 
-  return (<div>
+return (<div className='cart'>
 
   <h1>Your Cart</h1>
 
-  {cart.length > 0 ? (
-    <table>
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Price</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
+      <ul className='cart-items'>
 
-      <tbody>
         {cart.map((item, index) => (
-          <tr key={index}>
-            <td>{item.service}</td>
-            <td>${calculateEachPrice(item)}</td>
-            <td>{item.amount}</td>
-          </tr>
+          <li key={index} className='cart-item'>
+
+            <div className='cart-item-info'>
+              <h3>{item.service}</h3> {/* Display subscription name from data.js */}
+              <p>Price: ${item.price.toFixed(2)}</p> {/* Display item price */}
+              <p>Quantity: {item.amount}</p> {/* Display item quantity */}
+            </div>
+
+            <button onClick={() => removeFromCart(item.id)} className='remove-button'>
+              <i className="fa fa-trash" aria-hidden="true"/>
+            </button>
+
+          </li>
         ))}
 
-        <tr className='cart-total'>
-          <td colSpan="2">Total</td>
-          <td>${calculateTotalPrice()} USD</td>
-        </tr>
-      </tbody>
-    </table>
-    ) : (
-    <p>Your cart is empty</p>
-  )}
+      </ul>
 
 
-    <div>
-      <button onClick={() => navigate('/subscriptions')}>Keep Shopping</button>
-      <button>Checkout</button>
+    <div className='cart-buttons'>
+      <button onClick={() => navigate(`/subs`)}>Keep Shopping</button>
+      <button onClick={() => navigate(`/checkout`)}>Checkout</button>
     </div>
 
 
-    </div>);
+</div>);
 };
 
 export default Cart;

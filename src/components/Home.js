@@ -41,8 +41,7 @@ function Home() {
   const removeMovie = (item) => { /*https://www.geeksforgeeks.org/how-to-delete-an-item-from-state-array-in-reactjs/#*/
     const updateMovies = movies.filter(movie => movie !== item);
     setMovies(updateMovies);
-
-    localStorage.setItem('movies', JSON.stringify(movies));
+    localStorage.setItem('movies', JSON.stringify(updateMovies));
    };
    
 
@@ -62,13 +61,16 @@ function Home() {
   };
 
 
+
+  
     return (
       <div className="homepage">
 
+{/*Search*/}
 
         <form className="home-search" onSubmit={handleSubmit}>
 
-          <div >
+          <div>
             <img className="home-icon" src={search} alt="search"/>         
             <input id="input" placeholder ="Looking for . . . ." value = {input} onChange={e => setInput(e.target.value)}></input>
           </div>
@@ -78,6 +80,8 @@ function Home() {
         </form>
 
 
+
+{/*List*/}
 
         <div className="homepage-notify">
           <div className='homepage-notify-title'>
@@ -90,7 +94,7 @@ function Home() {
             {movies.map((movie,index)=>(
               <tr key={index}>
                 <td>{movie.title}</td>
-                <td className='homepage-notify-btn'><button onClick={() => removeMovie(movie)}><i className="fa fa-trash" aria-hidden="true"/></button></td>
+                <td className='homepage-notify-btn'><button onClick={() => removeMovie(movie)}><i className="fa fa-trash-o" aria-hidden="true"/></button></td>
                 <td className='homepage-notify-btn'><button><i className="fa fa-play-circle" aria-hidden="true"/></button></td>
               </tr>
             ))}
